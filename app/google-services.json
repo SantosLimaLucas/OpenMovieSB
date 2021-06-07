@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "196312908078",
+    "project_id": "openmoviesb",
+    "storage_bucket": "openmoviesb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:196312908078:android:db27ad68cb86ef410a3abf",
+        "android_client_info": {
+          "package_name": "com.example.openmoviesb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "196312908078-us5qdh5283uav3k8a2rsbc47lgfr211s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIDP6hqhsbUv6UqVETtLbeor4ogwvDokI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "196312908078-us5qdh5283uav3k8a2rsbc47lgfr211s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
