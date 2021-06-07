@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.openmoviesb.databinding.ActivityFormCadastroBinding
+import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 
 class FormCadastro : AppCompatActivity() {
 
@@ -46,7 +49,15 @@ class FormCadastro : AppCompatActivity() {
                 mensagem_erro.setText("")
             }
         }.addOnFailureListener {
-            mensagem_erro.setText(it.message)
+
+            var erro = it
+
+            when{
+                erro is FirebaseAuthWeakPasswordException -> mensagem_erro.setText("Digite uma senha com no mínimo 6 caracteres")
+                erro is FirebaseAuthUserCollisionException -> mensagem_erro.setText("Esta conta já foi cadastrada")
+                erro is FirebaseNetworkException -> mensagem_erro.setText("Sem conexão com a internet")
+                else -> mensagem_erro.setText("Erro ao cadastrar usuário")
+            }
         }
     }
 
