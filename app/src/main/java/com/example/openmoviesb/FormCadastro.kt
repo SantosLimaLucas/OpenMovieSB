@@ -1,5 +1,6 @@
 package com.example.openmoviesb
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -17,6 +18,11 @@ class FormCadastro : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFormCadastroBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.txtTelaLogin.setOnClickListener{
+            intent = Intent(this, FormLogin::class.java)
+            startActivity(intent)
+        }
 
         supportActionBar!!.hide()
         Toolbar()
@@ -56,14 +62,16 @@ class FormCadastro : AppCompatActivity() {
                 erro is FirebaseAuthWeakPasswordException -> mensagem_erro.setText("Digite uma senha com no mínimo 6 caracteres")
                 erro is FirebaseAuthUserCollisionException -> mensagem_erro.setText("Esta conta já foi cadastrada")
                 erro is FirebaseNetworkException -> mensagem_erro.setText("Sem conexão com a internet")
-                else -> mensagem_erro.setText("Erro ao cadastrar usuário")
+                else -> mensagem_erro.setText(it.message)
             }
         }
     }
 
+
+
     private fun Toolbar(){
         val toolbar = binding.toolbarCadastro
         toolbar.setBackgroundColor(getColor(R.color.white))
-        toolbar.setNavigationIcon(getDrawable(R.drawable.openmoviesb))
+        toolbar.setNavigationIcon(getDrawable(R.drawable.ic_open_movie_sem_fundo))
     }
 }

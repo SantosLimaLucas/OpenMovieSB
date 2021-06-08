@@ -12,13 +12,13 @@
         android:id="@+id/toolbar_cadastro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="0dp"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Informe seu email e senha para \npara iniciar a assinatura"
+        android:text="Informe seu email e senha para \niniciar a assinatura"
         android:textColor="@color/black"
         android:textSize="26sp"
         android:textStyle="bold"
@@ -92,5 +92,26 @@
         android:textStyle="bold"
         android:layout_gravity="center"
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Já tem uma conta?"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        />
+
+    <Button
+        android:id="@+id/txt_tela_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:text="Acesse agora."
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:textStyle="bold|italic" />
 
 </LinearLayout>
