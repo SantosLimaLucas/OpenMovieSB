@@ -6,10 +6,13 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import com.androidnetworking.AndroidNetworking
+import com.androidnetworking.error.ANError
+import com.androidnetworking.interfaces.ParsedRequestListener
 
 import com.example.openmoviesb.databinding.ActivityTelaPesquisaBinding
 import com.google.firebase.auth.FirebaseAuth
-
+import com.example.openmoviesb.Model.Filme
 
 
 class TelaPesquisa : AppCompatActivity() {
@@ -29,7 +32,7 @@ class TelaPesquisa : AppCompatActivity() {
             if (busca.isEmpty()) {
                 Toast.makeText(this, "Preencha o campo de busca", Toast.LENGTH_SHORT).show()
             }else{
-                url = "https://www.omdbapi.com/?s="+busca+"&apikey=960d95f2&page=2&r=json"
+                url = "https://www.omdbapi.com/?s="+busca+"&apikey=960d95f2&r=json"
                 fetchJson(url)
             }
         }
@@ -38,7 +41,22 @@ class TelaPesquisa : AppCompatActivity() {
     }
 
     fun fetchJson(url: String){
-        TelaListaFilmes(url)
+        AndroidNetworking.initialize(this)
+        AndroidNetworking.get(url)
+                .build()
+                .getAsObject(Filme::class.java, object : ParsedRequestListener<Filme> {
+                    override fun onResponse(response: Filme) {
+                        var pages = response.totalResults.toInt()/10
+                        TelaListaFilmes(url, pages)
+                    }
+                    override fun onError(anError: ANError?) {
+                        println("Ocorreu um erro")
+                    }
+
+                }
+
+                )
+
     }
 
 
@@ -59,9 +77,10 @@ class TelaPesquisa : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
     }
-    private fun TelaListaFilmes(url: String){
+    private fun TelaListaFilmes(url: String, pages: Int){
         val intent = Intent(this, ListaFilmes::class.java)
         intent.putExtra("url", url)
+        intent.putExtra("pages", pages)
         startActivity(intent)
 
     }

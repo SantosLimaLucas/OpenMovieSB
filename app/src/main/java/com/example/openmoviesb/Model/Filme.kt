@@ -1,4 +1,4 @@
-package com.marcos.netflixclone.Model
+package com.example.openmoviesb.Model
 
 
 

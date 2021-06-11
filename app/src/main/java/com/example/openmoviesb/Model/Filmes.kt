@@ -1,4 +1,4 @@
-package com.marcos.netflixclone.Model
+package com.example.openmoviesb.Model
 
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.interfaces.ParsedRequestListener

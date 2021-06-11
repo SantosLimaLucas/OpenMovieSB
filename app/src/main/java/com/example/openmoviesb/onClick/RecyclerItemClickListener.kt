@@ -1,4 +1,4 @@
-package com.marcos.netflixclone.OnClick
+package com.example.openmoviesb.OnClick
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.example.openmoviesb.R
 import com.example.openmoviesb.databinding.ListaFilmesItemBinding
-import com.marcos.netflixclone.Model.Filmes
+import com.example.openmoviesb.Model.Filmes
 import com.squareup.picasso.Picasso
 
 
@@ -23,10 +23,10 @@ class FilmesAdapter (val filmes: MutableList<Filmes>): RecyclerView.Adapter<Film
         with(holder){
             with(filmes[position]){
                 //binding.capaFilme.setImageResource(capaFilme)
-                val capaTheWitcher: String
+                val capaFilme: String
                 if(filmes[position].poster != "N/A"){
-                    capaTheWitcher =filmes[position].poster
-                    Picasso.get().load(capaTheWitcher).fit().into(binding.capaFilmeLista)
+                    capaFilme =filmes[position].poster
+                    Picasso.get().load(capaFilme).fit().into(binding.capaFilmeLista)
                 }else{
                     binding.capaFilmeLista.setImageResource(R.drawable.noimageavailable)
                 }
