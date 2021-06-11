@@ -11,8 +11,11 @@ import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.ParsedRequestListener
 
 import com.example.openmoviesb.databinding.ActivityTelaPesquisaBinding
-import com.google.firebase.auth.FirebaseAuth
 import com.example.openmoviesb.Model.Filme
+
+
+import com.google.firebase.auth.FirebaseAuth
+
 
 
 class TelaPesquisa : AppCompatActivity() {
@@ -27,7 +30,6 @@ class TelaPesquisa : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btBusca.setOnClickListener {
-
             busca = binding.editBusca.text.toString()
             if (busca.isEmpty()) {
                 Toast.makeText(this, "Preencha o campo de busca", Toast.LENGTH_SHORT).show()
@@ -36,7 +38,6 @@ class TelaPesquisa : AppCompatActivity() {
                 fetchJson(url)
             }
         }
-
 
     }
 
@@ -52,11 +53,8 @@ class TelaPesquisa : AppCompatActivity() {
                     override fun onError(anError: ANError?) {
                         println("Ocorreu um erro")
                     }
-
                 }
-
                 )
-
     }
 
 
@@ -67,22 +65,20 @@ class TelaPesquisa : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         when(item.itemId){
             R.id.deslogar -> {
                 FirebaseAuth.getInstance().signOut()
                 VoltarTelaLogin()
             }
         }
-
         return super.onOptionsItemSelected(item)
     }
+
     private fun TelaListaFilmes(url: String, pages: Int){
         val intent = Intent(this, ListaFilmes::class.java)
         intent.putExtra("url", url)
         intent.putExtra("pages", pages)
         startActivity(intent)
-
     }
 
     private fun VoltarTelaLogin(){
@@ -90,4 +86,6 @@ class TelaPesquisa : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+
+
 }

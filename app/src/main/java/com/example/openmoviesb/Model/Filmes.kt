@@ -8,15 +8,15 @@ import com.example.openmoviesb.R
 data class Filmes(
 
         @SerializedName("imdbID")
-        val imdbID: String,
+        var imdbID: String,
         @SerializedName("Poster")
-        val poster: String,
+        var poster: String,
         @SerializedName("Title")
-        val title: String,
+        var title: String,
         @SerializedName("Type")
-        val type: String,
+        var type: String,
         @SerializedName("Year")
-        val year: String
+        var year: String
 )
 
 class FilmesBuilder{

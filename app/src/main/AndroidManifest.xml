@@ -8,16 +8,29 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OpenMovieSB">
-        <activity android:name=".DetalhesFilme" android:screenOrientation="portrait"></activity>
-        <activity android:name=".TelaPesquisa" android:screenOrientation="portrait"/>
-        <activity android:name=".ListaFilmes" android:screenOrientation="portrait"/>
-        <activity android:name=".FormCadastro" android:screenOrientation="portrait"/>
-        <activity android:name=".FormLogin" android:screenOrientation="portrait"/>
-        <activity android:name=".MainActivity" android:screenOrientation="portrait">
+        <activity android:name=".Favoritos"></activity>
+        <activity
+            android:name=".DetalhesFilme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TelaPesquisa"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ListaFilmes"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FormCadastro"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FormLogin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
