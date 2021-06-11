@@ -1,23 +1,34 @@
-package com.example.openmoviesb.Model
+package com.marcos.netflixclone.Model
 
-import com.example.openmoviesb.R
+import com.androidnetworking.AndroidNetworking
+import com.androidnetworking.interfaces.ParsedRequestListener
 import com.google.gson.annotations.SerializedName
+import com.example.openmoviesb.R
 
 data class Filmes(
-    @SerializedName("Title") var titulo: String = "",
-    @SerializedName("Year") var ano: String="",
-    @SerializedName("imdbID") var imdbID: String="",
-    @SerializedName("Type") var tipo: String="",
-    @SerializedName("Poster") val capaFilme: String = ""
 
+        @SerializedName("imdbID")
+        val imdbID: String,
+        @SerializedName("Poster")
+        val poster: String,
+        @SerializedName("Title")
+        val title: String,
+        @SerializedName("Type")
+        val type: String,
+        @SerializedName("Year")
+        val year: String
 )
+
 class FilmesBuilder{
-    var capaFilme: String = ""
-    fun build():Filmes = Filmes(capaFilme)
+    var id: String = ""
+    var imagemfilme: String = ""
+    var title: String = ""
+    var type: String = ""
+    var year: String=""
+    fun build(): Filmes = Filmes(id, imagemfilme, title,type,year)
 }
 
-fun filmes(block: FilmesBuilder.()-> Unit): Filmes = FilmesBuilder().apply(block).build()
+fun filmes(block: FilmesBuilder.() -> Unit): Filmes = FilmesBuilder().apply(block).build()
 
-fun addFilmes(): MutableList<Filmes> = mutableListOf(
 
-)
+

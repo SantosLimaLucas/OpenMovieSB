@@ -5,13 +5,11 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/capaFilme"
+        android:id="@+id/capaFilmeLista"
         android:layout_width="130dp"
         android:layout_height="180dp"
-        android:src="@drawable/openmoviesb"
+        android:src="@drawable/ic_open_movie_sem_fundo"
         android:scaleType="centerCrop"
-        android:layout_margin="5dp"
-        />
-
+        android:layout_margin="5dp"/>
 
 </LinearLayout>

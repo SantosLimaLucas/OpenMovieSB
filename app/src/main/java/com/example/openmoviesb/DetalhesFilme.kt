@@ -3,12 +3,10 @@ package com.example.openmoviesb
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.openmoviesb.Adapter.FilmesAdapter
-import com.example.openmoviesb.Model.addFilmes
+
 import com.example.openmoviesb.databinding.ActivityDetalhesFilmeBinding
-import com.squareup.picasso.Picasso
+import com.example.openmoviesb.databinding.ListaFilmesItemBinding
 
 class DetalhesFilme : AppCompatActivity() {
 
@@ -22,7 +20,7 @@ class DetalhesFilme : AppCompatActivity() {
         Toolbar()
 
         val recycler_outros_filmes = binding.recyclerOutrosFilmes
-        recycler_outros_filmes.adapter = FilmesAdapter(addFilmes())
+        //recycler_outros_filmes.adapter = FilmesAdapter(addFilmes("asdasd"))
         recycler_outros_filmes.layoutManager = GridLayoutManager(applicationContext,3)
 
 

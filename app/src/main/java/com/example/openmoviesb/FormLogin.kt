@@ -68,7 +68,7 @@ class FormLogin : AppCompatActivity() {
     }
 
     private fun IrParaTelaDePesquisa(){
-        val intent = Intent(this, ListaFilmes::class.java)
+        val intent = Intent(this, TelaPesquisa::class.java)
         startActivity(intent)
         finish()
     }

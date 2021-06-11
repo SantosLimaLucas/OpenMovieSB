@@ -1,4 +1,4 @@
-package com.example.openmoviesb.OnClick
+package com.marcos.netflixclone.OnClick
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
@@ -9,7 +9,7 @@ interface OnItemClickListener {
 
 fun RecyclerView.addOnItemClickListener(onClickListener: OnItemClickListener) {
     this.addOnChildAttachStateChangeListener(object :
-        RecyclerView.OnChildAttachStateChangeListener {
+            RecyclerView.OnChildAttachStateChangeListener {
         override fun onChildViewDetachedFromWindow(view: View) {
             view?.setOnClickListener(null)
         }
