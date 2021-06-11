@@ -3,16 +3,12 @@ package com.example.openmoviesb
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.ParsedRequestListener
-
 import com.example.openmoviesb.Model.Detalhes
 import com.example.openmoviesb.Model.Rating
-
 import com.example.openmoviesb.databinding.ActivityDetalhesFilmeBinding
-
 import com.squareup.picasso.Picasso
 
 
@@ -36,26 +32,15 @@ class DetalhesFilme : AppCompatActivity() {
                     override fun onResponse(response: Detalhes) {
                         dataDetalhes = response
                         data(dataDetalhes)
-
-
                     }
                     override fun onError(anError: ANError?) {
                         println("Ocorreu um erro")
                     }
-
                 }
-
                 )
-
-
-
 
         supportActionBar!!.hide()
         Toolbar()
-
-
-
-
     }
 
     private fun Toolbar(){
@@ -91,8 +76,6 @@ class DetalhesFilme : AppCompatActivity() {
 
         var writers = detalhes.writer
         binding.writers.text = "Stars: ${writers}"
-
-
 
         if(poster != "N/A"){
             Picasso.get().load(poster).fit().into(binding.poster)

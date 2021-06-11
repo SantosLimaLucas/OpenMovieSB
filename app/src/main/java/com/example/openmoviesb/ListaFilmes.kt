@@ -1,11 +1,8 @@
 package com.example.openmoviesb
 
-import android.content.ContentValues
-import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -17,14 +14,12 @@ import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.ParsedRequestListener
 import com.example.openmoviesb.Adapter.FilmesAdapter
 import com.google.firebase.auth.FirebaseAuth
-
 import com.example.openmoviesb.databinding.ActivityListaFilmesBinding
 import com.example.openmoviesb.Model.Filme
 import com.example.openmoviesb.Model.Filmes
 import com.example.openmoviesb.OnClick.OnItemClickListener
 import com.example.openmoviesb.OnClick.addOnItemClickListener
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+
 
 class ListaFilmes : AppCompatActivity() {
 
@@ -59,20 +54,11 @@ class ListaFilmes : AppCompatActivity() {
                             println("Ocorreu um erro")
                         }
 
-                    }
-
-                    )
+                    })
         }
-
-
-
-
-
-
 
         recycler_filmes.addOnItemClickListener(object: OnItemClickListener {
             override fun onItemClicked(position: Int, view: View) {
-                    adicionarFavoritos(datalist[position].imdbID)
                     DetalhesFilme(datalist, position)
             }
         })
@@ -111,24 +97,6 @@ class ListaFilmes : AppCompatActivity() {
         val intent = Intent(this,FormLogin::class.java)
         startActivity(intent)
         finish()
-    }
-
-    private fun adicionarFavoritos(idFilme: String){
-        var currentUser = FirebaseAuth.getInstance().currentUser?.email
-        val db =  Firebase.firestore
-        val filmeFavorito = hashMapOf(
-            "userId" to currentUser,
-            "Favorites" to idFilme
-        )
-        // Add a new document with a generated ID
-        db.collection("usuários")
-            .add(filmeFavorito)
-            .addOnSuccessListener { documentReference ->
-                Log.d(ContentValues.TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-            }
-            .addOnFailureListener { e ->
-                Log.w(ContentValues.TAG, "Error adding document", e)
-            }
     }
 
 }
