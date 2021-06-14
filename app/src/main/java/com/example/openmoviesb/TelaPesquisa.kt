@@ -15,7 +15,7 @@ import com.example.openmoviesb.Model.Filme
 
 
 import com.google.firebase.auth.FirebaseAuth
-
+import java.lang.Exception
 
 
 class TelaPesquisa : AppCompatActivity() {
@@ -42,19 +42,24 @@ class TelaPesquisa : AppCompatActivity() {
     }
 
     fun fetchJson(url: String){
-        AndroidNetworking.initialize(this)
-        AndroidNetworking.get(url)
-                .build()
-                .getAsObject(Filme::class.java, object : ParsedRequestListener<Filme> {
-                    override fun onResponse(response: Filme) {
-                        var pages = response.totalResults.toInt()/10
-                        TelaListaFilmes(url, pages)
-                    }
-                    override fun onError(anError: ANError?) {
-                        println("Ocorreu um erro")
-                    }
-                }
-                )
+            AndroidNetworking.initialize(this)
+            AndroidNetworking.get(url)
+                    .build()
+                    .getAsObject(Filme::class.java, object : ParsedRequestListener<Filme> {
+                        override fun onResponse(response: Filme) {
+                            try{
+                                var pages = response.totalResults.toInt()/10
+                                TelaListaFilmes(url, pages)
+                            }catch (e: Exception){
+                                binding.mensagemErro.setText("Muitos resultados encontrados, refine a busca")
+
+                            }
+
+                        }
+                        override fun onError(anError: ANError?) {
+                            println("Ocorreu um erro")
+                        }
+                    })
     }
 
 
