@@ -75,7 +75,7 @@ class DetalhesFilme : AppCompatActivity() {
         binding.stars.text = "Stars: ${stars}"
 
         var writers = detalhes.writer
-        binding.writers.text = "Stars: ${writers}"
+        binding.writers.text = "Writers: ${writers}"
 
         if(poster != "N/A"){
             Picasso.get().load(poster).fit().into(binding.poster)
