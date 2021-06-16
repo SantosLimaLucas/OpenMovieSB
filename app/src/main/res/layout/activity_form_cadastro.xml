@@ -109,6 +109,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
+        android:backgroundTint="@color/black"
         android:text="Acesse agora."
         android:textColor="@color/white"
         android:textSize="10sp"

@@ -71,6 +71,7 @@
         android:textAllCaps="false"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="@color/white"
         app:cornerRadius="10dp"
         app:strokeColor="@color/white"
         app:strokeWidth="2dp" />

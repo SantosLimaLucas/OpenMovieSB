@@ -25,12 +25,15 @@ class TelaPesquisa : AppCompatActivity() {
     var url: String=""
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         binding = ActivityTelaPesquisaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.btBusca.setOnClickListener {
             busca = binding.editBusca.text.toString()
+
+            binding.mensagemErro.setText(" ")
             if (busca.isEmpty()) {
                 Toast.makeText(this, "Preencha o campo de busca", Toast.LENGTH_SHORT).show()
             }else{

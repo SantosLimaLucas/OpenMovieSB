@@ -24,6 +24,7 @@ class FormLogin : AppCompatActivity() {
         binding.txtTelaCadastro.setOnClickListener{
             intent = Intent(this, FormCadastro::class.java)
             startActivity(intent)
+            finish()
         }
 
         binding.btEntrar.setOnClickListener {

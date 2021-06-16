@@ -22,6 +22,7 @@ class FormCadastro : AppCompatActivity() {
         binding.txtTelaLogin.setOnClickListener{
             intent = Intent(this, FormLogin::class.java)
             startActivity(intent)
+            finish()
         }
 
         supportActionBar!!.hide()
@@ -53,6 +54,7 @@ class FormCadastro : AppCompatActivity() {
                 binding.editEmail.setText("")
                 binding.editSenha.setText("")
                 mensagem_erro.setText("")
+                FirebaseAuth.getInstance().signOut()
             }
         }.addOnFailureListener {
 
@@ -65,6 +67,7 @@ class FormCadastro : AppCompatActivity() {
                 else -> mensagem_erro.setText(it.message)
             }
         }
+
     }
 
 
